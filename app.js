@@ -4,12 +4,15 @@ const list = document.getElementById("task-list");
 const charCount = document.getElementById("char-count");
 const MAX_CHARS = 50
 
-input.addEventListener(input, () => {
-    const length = input.value.length; //text content
+input.addEventListener("input", () => {
+    if (input.value.length > MAX_CHARS) {
+      input.value = input.value.slice(0, MAX_CHARS); 
+    }
+  
+    const length = input.value.length;
     charCount.textContent = `${length} / ${MAX_CHARS}`;
-
-
-})
+  });
+  
 
 form.addEventListener("submit", function (e) {
   e.preventDefault(); // stop page reload
