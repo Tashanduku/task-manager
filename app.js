@@ -1,20 +1,41 @@
 const form = document.getElementById("form");
 const input = document.getElementById("task-input");
 const list = document.getElementById("task-list");
+const charCount = document.getElementById("char-count");
+const MAX_CHARS = 50
+
+input.addEventListener(input, () => {
+    const length = input.value.length; //text content
+    charCount.textContent = `${length} / ${MAX_CHARS}`;
+
+
+})
 
 form.addEventListener("submit", function (e) {
-    e.preventDefault(); 
-const inputText = input.value.trim();
+  e.preventDefault(); // stop page reload
 
-if (inputText === "") {
-    alert("Task cannot be empty"); 
+  const taskText = input.value.trim();
+  const charLength = taskText.length 
+  
+  if (taskText === "") {
+    alert("Please enter a task"); 
     return;
   }
 
-const li = document.createElement('li');
-li.textContent =inputText;
+  const li = document.createElement("li"); 
+  li.textContent = taskText;
 
-list.appendChild('li')
+  list.appendChild(li); 
+  
+//reset
+  input.value = ""; 
+  charCount.textContent = `0 / ${MAX_CHARS}`;
+  
 
-input.value = "";
+  
 });
+
+
+
+
+
