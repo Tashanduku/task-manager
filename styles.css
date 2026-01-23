@@ -57,3 +57,29 @@
     color: red;
     font-weight: bold;
   }
+
+  /* toggle */
+
+  #task-list li {
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  #task-list li.completed {
+    text-decoration: line-through;
+    color: #999;
+    background: #f0f0f0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
